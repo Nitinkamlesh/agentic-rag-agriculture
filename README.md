@@ -1,32 +1,43 @@
-🌾 Agentic RAG Agriculture Assistant — Spring Boot + Spring AI + Qdrant
+🌾 Agentic RAG Agriculture Assistant
+Spring Boot + Spring AI + Qdrant (Vector DB)
+<p align="center"> <img src="YOUR_LOGO_URL_HERE" width="140" /> </p> <p align="center"> 🚀 A modern multi-agent RAG system designed for Agriculture-focused Question Answering </p>
+🛠 Tech Stack
+<p> <img src="https://img.shields.io/badge/Java-21-blue" /> <img src="https://img.shields.io/badge/Spring%20Boot-3.4-green" /> <img src="https://img.shields.io/badge/Spring%20AI-1.0-orange" /> <img src="https://img.shields.io/badge/Qdrant-Vector%20DB-red" /> <img src="https://img.shields.io/badge/OpenAI-Embeddings-lightgrey" /> </p>
+📌 Project Overview
 
-A prototype Agentic RAG (Retrieval-Augmented Generation) system built using Spring Boot, Spring AI, and Qdrant Vector Database.
-This project demonstrates how multiple AI agents (Query Rewriter, RAG Retriever, Answer Generator, Critic Agent) work together to produce accurate agriculture-focused answers.
+This project is a prototype Agentic RAG (Retrieval-Augmented Generation) system for the agriculture domain built using:
 
-This prototype is fully customizable — you can add your own datasets, agents, workflows, tools, and domain logic.
+Spring Boot (REST API backend)
 
-🚀 Features
+Spring AI (LLM orchestration + agents)
 
-✅ Agentic RAG Pipeline (multi-agent system)
-✅ Query Rewriter Agent – improves user query
-✅ Qdrant Vector Store – semantic retrieval
-✅ Answer Generator Agent
-✅ Critic Agent – validates and improves answers
-✅ Spring Boot REST API
-✅ Embeddings using OpenAI
-✅ Pluggable architecture → Add your own tools and agents easily
-✅ Simple and clean code for learning GenAI engineering concepts
+Qdrant Vector Database (semantic embeddings search)
 
-🧠 How Agentic RAG Works in This Project
-User Query → Query Rewriter Agent → Embedding Search (Qdrant)
-→ RAG Context → Answer Generator Agent → Critic Agent → Final Answer
+It contains multiple intelligent agents working together:
 
-Agents Included
-Agent	Purpose
-🔍 Query Rewriter	Cleans & optimizes the user query
-📚 Retriever (RAG)	Searches relevant chunks from Qdrant
-🤖 Answer Generator	Creates accurate agriculture advice
-🧠 Critic Agent	Reviews and improves final output
+Agent	Role
+🔍 Query Rewriter Agent	Cleans, clarifies, improves user query
+📚 RAG Retrieval Agent	Searches most relevant agriculture knowledge
+🤖 Answer Generation Agent	Creates precise agricultural advice
+🧠 Critic Agent	Verifies, corrects & enhances final answer
+
+This pipeline ensures high accuracy, domain-specific responses, and better reliability than basic RAG.
+
+🧠 Agentic RAG Architecture
+<p align="center"> <img src="YOUR_DIAGRAM_URL_HERE" width="600"/> </p>
+Flow
+User Input
+     ↓
+Query Rewriter Agent
+     ↓
+Vector DB Search (Qdrant)
+     ↓
+Answer Generation Agent
+     ↓
+Critic / Verification Agent
+     ↓
+Final Answer
+
 📁 Project Structure
 src/
  ├── main/java/com/example/demo/
@@ -47,81 +58,88 @@ src/
  │    │     └── pests.txt
  │    ├── application.properties
  │
- └── test/java/...
+ └── test/
 
-⚙️ Tech Stack
-
-Java 21
-Spring Boot 3
-Spring AI
-OpenAI GPT model
-Qdrant Vector Database
-Docker (optional)
-
-📦 Setup Instructions
-1. Clone the Repository
+⚙️ Setup Guide
+1️⃣ Clone the Repository
 git clone https://github.com/your-username/agentic-rag-agriculture.git
 cd agentic-rag-agriculture
 
-2. Add Your OpenAI Key (without committing it)
+2️⃣ Configure Environment Variables
 
-Create a file:
-.env
+Create .env file:
 
-Add:
-OPENAI_API_KEY=your_key_here
+OPENAI_API_KEY=your_api_key_here
 
 
-Your application.properties should contain:
+Update application.properties:
+
 spring.ai.openai.api-key=${OPENAI_API_KEY}
 
-3. Start Qdrant
-Option A — Docker:
+
+✔ Never commit your real API keys.
+
+3️⃣ Start Qdrant (Vector Database)
+Option A — Docker
 docker run -p 6334:6334 qdrant/qdrant
 
-Option B — Qdrant Cloud (free)
+Option B — Qdrant Cloud
 
-5. Run the Spring Boot App
+Free cloud instance available at:
+https://cloud.qdrant.io
+
+4️⃣ Run the Application
 mvn spring-boot:run
 
-🧪 Testing the API (Postman / Curl)
-POST request:
-POST http://localhost:8080/api/chat
+🧪 Test the API (Postman)
+POST → http://localhost:8080/api/chat
 
+Body → Form-data:
 
-Body → form-data:
-
-key	value
-message	Why wheat leaves turn yellow?
-Example Response:
-Wheat leaves may turn yellow due to nutrient deficiency or aphid attack.
-Use neem oil spray and monitor soil moisture.
+Key	Value
+message	Why are wheat leaves turning yellow?
+Example Response
+Wheat leaves often turn yellow due to nutrient deficiency or aphid attack.
+Apply neem oil spray and check soil nitrogen levels.
 
 📚 Customizing the Dataset
 
-Add your domain documents to:
+Add your documents here:
 
 src/main/resources/agri-data/
 
 
-Documents are automatically:
-Chunked
-Embedded
-Stored in Qdrant
+The system automatically:
 
-🛠️ Future Enhancements
-🌱 Multi-agent planning (ReAct or tool-use agent)
-🚜 Image-based plant disease diagnosis
-🌩 Real-time weather data retrieval agent
-📈 Yield prediction agent
-📡 IoT integration
-🤝 Contributions
+Splits documents
 
-Contributions, ideas, and improvements are welcome!
-Feel free to open PRs, issues, or discussions.
+Generates embeddings
 
-📄 License
-This project is open-source under the MIT License.
+Stores them in Qdrant
 
-⭐ Support
-If you like this project, give it a ⭐ on GitHub — it motivates further development!
+Just restart the app.
+
+🔮 Future Enhancements
+
+🌱 Multi-agent planning (ReAct, Tool-Augmented AI)
+
+📷 Plant disease detection via images
+
+🌦 Live weather agent
+
+📡 IoT farm sensor integration
+
+📈 Crop yield prediction models
+
+🤝 Contributing
+
+Pull requests, issues, and feature ideas are welcome!
+
+📜 License
+
+MIT License
+
+⭐ Support the Project
+
+If this project helps you, please ⭐ the repo —
+It motivates me to build more open-source GenAI projects!
