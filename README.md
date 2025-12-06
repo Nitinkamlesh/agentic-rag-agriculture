@@ -12,7 +12,7 @@ Spring AI (LLM orchestration + agents)
 Qdrant Vector Database (semantic embeddings search)
 It contains multiple intelligent agents working together:
 
-        Agent	                                          Role
+Agent	                                          Role
 🔍 Query Rewriter Agent	             Cleans, clarifies, improves user query
 📚 RAG Retrieval Agent	             Searches most relevant agriculture knowledge
 🤖 Answer Generation Agent	        Creates precise agricultural advice
