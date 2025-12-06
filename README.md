@@ -8,20 +8,19 @@ Spring Boot + Spring AI + Qdrant (Vector DB)
 This project is a prototype Agentic RAG (Retrieval-Augmented Generation) system for the agriculture domain built using:
 
 Spring Boot (REST API backend)
-
 Spring AI (LLM orchestration + agents)
-
 Qdrant Vector Database (semantic embeddings search)
-
 It contains multiple intelligent agents working together:
 
-Agent	Role
-🔍 Query Rewriter Agent	Cleans, clarifies, improves user query
-📚 RAG Retrieval Agent	Searches most relevant agriculture knowledge
-🤖 Answer Generation Agent	Creates precise agricultural advice
-🧠 Critic Agent	Verifies, corrects & enhances final answer
+        Agent	                                          Role
+🔍 Query Rewriter Agent	             Cleans, clarifies, improves user query
+📚 RAG Retrieval Agent	             Searches most relevant agriculture knowledge
+🤖 Answer Generation Agent	        Creates precise agricultural advice
+🧠 Critic Agent	                  Verifies, corrects & enhances final answer
 
 This pipeline ensures high accuracy, domain-specific responses, and better reliability than basic RAG.
+
+
 
 🧠 Agentic RAG Architecture
 <p align="center"> <img src="YOUR_DIAGRAM_URL_HERE" width="600"/> </p>
@@ -37,6 +36,8 @@ Answer Generation Agent
 Critic / Verification Agent
      ↓
 Final Answer
+
+
 
 📁 Project Structure
 src/
@@ -59,6 +60,8 @@ src/
  │    ├── application.properties
  │
  └── test/
+
+
 
 ⚙️ Setup Guide
 1️⃣ Clone the Repository
@@ -110,27 +113,17 @@ src/main/resources/agri-data/
 
 
 The system automatically:
-
 Splits documents
-
 Generates embeddings
-
 Stores them in Qdrant
-
 Just restart the app.
 
 🔮 Future Enhancements
-
 🌱 Multi-agent planning (ReAct, Tool-Augmented AI)
-
 📷 Plant disease detection via images
-
 🌦 Live weather agent
-
 📡 IoT farm sensor integration
-
 📈 Crop yield prediction models
-
 🤝 Contributing
 
 Pull requests, issues, and feature ideas are welcome!
